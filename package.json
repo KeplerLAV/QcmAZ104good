@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^5.14.6",
     "@radix-ui/react-label": "^2.1.8",
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
