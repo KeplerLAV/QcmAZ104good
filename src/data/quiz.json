@@ -401,7 +401,7 @@
   {
     "id": 58,
     "question": "Quel est le but d'une 'Exclusion' dans une attribution d'Azure Policy ?",
-    "options": ["Désactiver temporairement la Policy.", "Empêcher la Policy de s'appliquer à un sous-scope spécifique (ex: un Resource Group spécifique).", "Changer l'effet de la Policy (ex: de Deny à Audit).", "Demander l'approbation avant l'application de la Policy."],
+    "options": ["Désactiver temporairement la Policy.", "Empêcher la Policy de s'appliquer à un sous-scope spécifique.", "Changer l'effet de la Policy (ex: de Deny à Audit).", "Demander l'approbation avant l'application de la Policy."],
     "correctAnswer": 1,
     "explanation": "Les exclusions permettent de déroger à l'héritage. Si une Policy est attribuée au niveau de l'abonnement, vous pouvez exclure un Resource Group spécifique de cette Policy."
   },
@@ -884,7 +884,7 @@
   {
     "id": 127,
     "question": "Quel est l'impact de l'effet 'Append' (Ajouter) dans une Azure Policy ?",
-    "options": ["Il supprime une ressource non conforme.", "Il ajoute des champs obligatoires (par exemple, des tags) à la requête si ceux-ci sont manquants au moment du déploiement.", "Il bloque la création de la ressource.", "Il audite la conformité."],
+    "options": ["Il supprime une ressource non conforme.", "Il ajoute des champs obligatoires si ceux-ci sont manquants au moment du déploiement.", "Il bloque la création de la ressource.", "Il audite la conformité."],
     "correctAnswer": 1,
     "explanation": "L'effet 'Append' permet d'ajouter des informations manquantes à une requête de création ou de mise à jour de ressource (par exemple, forcer l'ajout d'un Tag 'Environment')."
   },
@@ -1094,14 +1094,14 @@
   {
     "id": 157,
     "question": "Quel est le but des 'Resource Groups' dans la gestion des coûts ?",
-    "options": ["Ils ne sont pas utilisés pour la gestion des coûts.", "Ils limitent la taille des machines virtuelles.", "Ils permettent de regrouper les ressources ayant le même cycle de vie et de consolider leur analyse de coûts.", "Ils définissent le type de licence."],
+    "options": ["Ils ne sont pas utilisés pour la gestion des coûts.", "Ils limitent la taille des machines virtuelles.", "Facilitent les différents analyse.", "Ils définissent le type de licence."],
     "correctAnswer": 2,
     "explanation": "Les Resource Groups agissent comme un conteneur logique, ce qui facilite l'application de tags (pour la facturation) et l'analyse de coûts pour cet ensemble de ressources."
   },
   {
     "id": 158,
     "question": "Si vous souhaitez automatiser la désactivation des utilisateurs qui ne se sont pas connectés depuis 90 jours, quel type de groupe pourrait vous aider à cibler ces utilisateurs ?",
-    "options": ["Groupe Statique.", "Groupe de Distribution.", "Groupe Dynamique (basé sur l'attribut de connexion).", "Groupe de Sécurité avec affectation manuelle."],
+    "options": ["Groupe Statique.", "Groupe de Distribution.", "Groupe Dynamique.", "Groupe de Sécurité avec affectation manuelle."],
     "correctAnswer": 2,
     "explanation": "Les Groupes Dynamiques peuvent utiliser des attributs d'utilisateur comme 'last sign-in date' (date de la dernière connexion) pour automatiser l'appartenance à un groupe qui pourrait ensuite être ciblé par une autre politique de désactivation."
   },
@@ -1241,7 +1241,7 @@
   {
     "id": 178,
     "question": "Si vous souhaitez transférer la propriété d'un abonnement Azure à un autre utilisateur Entra ID, quel rôle est requis pour l'utilisateur effectuant le transfert ?",
-    "options": ["Contributeur.", "Lecteur.", "Propriétaire (sur l'abonnement).", "Administrateur d'utilisateurs."],
+    "options": ["Contributeur.", "Lecteur.", "Propriétaire de l'abonnement.", "Administrateur d'utilisateurs."],
     "correctAnswer": 2,
     "explanation": "Seul un 'Propriétaire' peut gérer les attributions de rôles pour l'abonnement et transférer la propriété (propriétaire de la facturation)."
   },
@@ -1325,7 +1325,7 @@
   {
     "id": 190,
     "question": "Si vous devez permettre à un utilisateur de modifier les Tags sur une ressource, mais de ne rien faire d'autre, quel est le meilleur rôle RBAC à utiliser ?",
-    "options": ["Contributeur.", "Lecteur.", "Propriétaire.", "Contributeur de Tags (Tag Contributor)."],
+    "options": ["Contributeur.", "Lecteur.", "Propriétaire.", "Contributeur de Tags."],
     "correctAnswer": 3,
     "explanation": "Le rôle intégré 'Tag Contributor' est spécifiquement conçu pour permettre à l'utilisateur de gérer les tags sur les ressources et les Resource Groups sans avoir de permissions de gestion de la ressource elle-même."
   },
@@ -1493,7 +1493,7 @@
   {
     "id": 214,
     "question": "Comment pouvez-vous empêcher un utilisateur d'accéder au compte de stockage à l'aide des clés de compte, tout en lui permettant d'utiliser l'authentification Azure AD ?",
-    "options": ["En supprimant les clés d'accès.", "En désactivant l'accès aux clés partagées (Shared Key Access) dans la configuration du compte de stockage.", "En utilisant des Service Endpoints.", "En changeant le type de compte pour un compte Premium."],
+    "options": ["En supprimant les clés d'accès.", "En désactivant l'accès aux clés partagées sur le compte.", "En utilisant des Service Endpoints.", "En changeant le type de compte pour un compte Premium."],
     "correctAnswer": 1,
     "explanation": "La désactivation de l'accès aux clés partagées empêche toute authentification utilisant les clés de compte ou toute SAS basée sur ces clés. L'accès doit alors se faire uniquement via Azure AD (RBAC) ou SAS de délégation d'utilisateur."
   },
@@ -1864,7 +1864,7 @@
   {
     "id": 267,
     "question": "Quelle est l'avantage de l'utilisation d'une 'SAS de délégation d'utilisateur' (User Delegation SAS) par rapport à une 'SAS de service' (Service SAS) en termes de gestion des secrets ?",
-    "options": ["La SAS de délégation d'utilisateur est signée à l'aide de l'identité Entra ID, évitant l'utilisation des clés de compte de stockage.", "La SAS de service peut être révoquée plus facilement.", "La SAS de délégation d'utilisateur a une durée de vie illimitée.", "La SAS de service est plus sûre."],
+    "options": ["La SAS de délégation d'utilisateur est signée à l'aide de l'identité Entra ID.", "La SAS de service peut être révoquée plus facilement.", "La SAS de délégation d'utilisateur a une durée de vie illimitée.", "La SAS de service est plus sûre."],
     "correctAnswer": 0,
     "explanation": "La SAS de délégation d'utilisateur est liée à l'identité Entra ID, elle n'est pas signée par la clé de compte. C'est le principal avantage en matière de sécurité."
   },
@@ -1913,7 +1913,7 @@
   {
     "id": 274,
     "question": "Quel est l'impact si le pare-feu du compte de stockage est configuré pour bloquer tout accès public, mais qu'un utilisateur essaie d'accéder via une SAS valide sur Internet ?",
-    "options": ["L'accès est accordé car la SAS prévaut sur le pare-feu.", "L'accès est refusé car le pare-feu (accès au réseau) est appliqué avant l'autorisation (SAS).", "L'utilisateur est redirigé vers le niveau 'Cool'.", "L'accès est seulement en lecture seule."],
+    "options": ["L'accès est accordé car la SAS prévaut sur le pare-feu.", "L'accès est refusé car le pare-feu est appliqué avant l'autorisation.", "L'utilisateur est redirigé vers le niveau 'Cool'.", "L'accès est seulement en lecture seule."],
     "correctAnswer": 1,
     "explanation": "Le pare-feu du compte de stockage contrôle l'accès au réseau (couche 3 et 4) et est la première ligne de défense. Si l'accès est bloqué au niveau du réseau, aucune autorisation (clé, SAS, RBAC) ne peut passer."
   },
@@ -2676,7 +2676,7 @@
   {
     "id": 383,
     "question": "Quelle est l'exigence d'authentification minimale pour pouvoir lister les conteneurs d'un compte de stockage en utilisant Azure CLI/PowerShell ?",
-    "options": ["Clé de compte uniquement.", "SAS de service.", "Rôle 'Contributeur de compte de stockage' ou un rôle avec des permissions du plan de données au niveau du compte.", "Authentification anonyme."],
+    "options": ["Clé de compte uniquement.", "SAS de service.", "Rôle 'Contributeur de compte de stockage' ou similaire.", "Authentification anonyme."],
     "correctAnswer": 2,
     "explanation": "Lister les conteneurs est considéré comme une opération sur les données. Un rôle RBAC approprié au niveau du compte de stockage (ex: 'Storage Blob Data Reader' au niveau du compte) est nécessaire si l'on utilise Azure AD."
   },
@@ -3397,7 +3397,7 @@
   {
     "id": 486,
     "question": "Quel est le rôle d'un Ingress Controller dans AKS (Azure Kubernetes Service) ?",
-    "options": ["Gérer la mise à l'échelle automatique.", "Fournir un point d'entrée pour le trafic externe, gérant le routage de la couche 7 (HTTP/HTTPS) vers les services (pods) dans le cluster.", "Stocker les disques de données.", "Gérer la facturation."],
+    "options": ["Gérer la mise à l'échelle automatique.", "Diriger le trafic web externe vers les services du cluster.", "Stocker les disques de données.", "Gérer la facturation."],
     "correctAnswer": 1,
     "explanation": "L'Ingress est un composant essentiel pour les applications web sur AKS, gérant les règles de routage et souvent le déchargement TLS."
   },
@@ -5539,7 +5539,7 @@
   {
     "id": 792,
     "question": "Quel est l'impact si vous utilisez un Endpoint de Service et que vous tentez de supprimer le sous-réseau associé ?",
-    "options": ["Le sous-réseau est supprimé.", "L'Endpoint de Service est supprimé automatiquement.", "L'opération échouera; vous devez d'abord supprimer ou désactiver l'Endpoint de Service pour tous les services PaaS configurés sur ce sous-réseau.", "Le trafic est bloqué."],
+    "options": ["Le sous-réseau est supprimé.", "L'Endpoint de Service est supprimé automatiquement.", "L'opération échouera.", "Le trafic est bloqué."],
     "correctAnswer": 2,
     "explanation": "Les dépendances doivent être supprimées avant l'infrastructure réseau de base (sous-réseau)."
   },

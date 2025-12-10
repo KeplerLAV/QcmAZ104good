@@ -8,6 +8,7 @@ import quizDataJson from '../data/quiz.json'
 import './page.scss'
 
 type QuizQuestion = {
+  id: number
   question: string
   options: string[]
   correctAnswer: number
@@ -16,7 +17,8 @@ type QuizQuestion = {
 
 const TOTAL_QUESTIONS = 60
 
-const shuffleArray = (array: QuizQuestion[]) => [...array].sort(() => Math.random() - 0.5)
+const shuffleArray = (array: QuizQuestion[]) =>
+  [...array].sort(() => Math.random() - 0.5)
 
 export default function QuizApp() {
   const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([])
@@ -64,9 +66,7 @@ export default function QuizApp() {
   const errors = quizQuestions.length - score
   const percent = Math.round((score / quizQuestions.length) * 100)
 
-  // ------------------
   // DOWNLOAD UTILITIES
-  // ------------------
 
   const downloadFile = (filename: string, content: string) => {
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" })
@@ -85,6 +85,7 @@ export default function QuizApp() {
     text += "----------------------------------------\n\n"
 
     quizQuestions.forEach((q, i) => {
+      text += `ID: ${q.id}\n`
       text += `Question ${i + 1}: ${q.question}\n`
       text += `Your answer: ${q.options[userAnswers[i]]}\n`
       text += `Correct answer: ${q.options[q.correctAnswer]}\n`
@@ -97,6 +98,7 @@ export default function QuizApp() {
 
   const generateJSON = () => {
     const data = quizQuestions.map((q, i) => ({
+      id: q.id,
       question: q.question,
       yourAnswer: q.options[userAnswers[i]],
       correctAnswer: q.options[q.correctAnswer],
@@ -117,10 +119,10 @@ export default function QuizApp() {
   }
 
   const generateCSV = () => {
-    let csv = "Question;Your Answer;Correct Answer;Explanation\n"
+    let csv = "ID;Question;Your Answer;Correct Answer;Explanation\n"
 
     quizQuestions.forEach((q, i) => {
-      csv += `"${q.question}";"${q.options[userAnswers[i]]}";"${q.options[q.correctAnswer]}";"${q.explanation}"\n`
+      csv += `"${q.id}";"${q.question}";"${q.options[userAnswers[i]]}";"${q.options[q.correctAnswer]}";"${q.explanation}"\n`
     })
 
     return csv
@@ -131,8 +133,6 @@ export default function QuizApp() {
     if (format === "json") downloadFile("results.json", generateJSON())
     if (format === "csv") downloadFile("results.csv", generateCSV())
   }
-
-  // ------------------
 
   if (quizQuestions.length === 0) return <p>Loading...</p>
 
@@ -151,7 +151,9 @@ export default function QuizApp() {
         {!submitted ? (
           <div className="question-container">
             <Card className="question-card">
-              <h2 style={{ color: '#000' }}>Question {currentIndex + 1} / {quizQuestions.length}</h2>
+              <h2 style={{ color: '#000' }}>
+                Question {currentIndex + 1} / {quizQuestions.length} (ID: {quizQuestions[currentIndex].id})
+              </h2>
 
               <p style={{ color: '#000', fontWeight: 500 }}>
                 {quizQuestions[currentIndex].question}
