@@ -3731,291 +3731,497 @@
   },
   {
     "id": 410,
-    "question": "Quel est l'impact si vous utilisez un Azure Dedicated Host ?",
-    "options": ["Vous réduisez les coûts immédiatement.", "Vous obtenez des serveurs physiques dédiés dans un centre de données Azure, offrant un contrôle accru sur la gestion du serveur (ex: isolement physique et maintenance).", "L'utilisation est limitée aux VM Linux.", "Le déploiement est plus rapide."],
+    "question": "Quel est l'impact principal d'un Azure Dedicated Host ?",
+    "options": [
+      "Une réduction automatique des coûts de licence.",
+      "Un serveur physique dédié pour un isolement total.",
+      "Une restriction aux seules machines virtuelles Linux.",
+      "Un déploiement plus rapide que les hôtes partagés."
+    ],
     "correctAnswer": 1,
-    "explanation": "Dedicated Host est un service qui offre l'isolement au niveau du serveur physique, important pour la conformité et la gestion de la maintenance, et est facturé par hôte, et non par VM."
+    "explanation": "Dedicated Host offre un isolement physique au niveau du matériel, crucial pour la conformité et le contrôle de la maintenance."
   },
   {
     "id": 411,
-    "question": "Quel est le rôle d'une Galerie d'Images Partagées (Shared Image Gallery ou SIG) ?",
-    "options": ["Stocker uniquement des disques de données.", "Gérer la distribution, le contrôle de version et le partage des images de VM personnalisées entre les abonnements et les locataires Azure.", "Stocker des templates ARM.", "Stocker des sauvegardes."],
-    "correctAnswer": 1,
-    "explanation": "La SIG est essentielle pour l'automatisation et la cohérence des déploiements de VM, en fournissant un référentiel central pour les images de VM personnalisées."
+    "question": "Quel est le rôle d'une Galerie d'Images (Compute Gallery) ?",
+    "options": [
+      "Stocker des modèles ARM et des scripts Bicep.",
+      "Gérer les sauvegardes de bases de données SQL.",
+      "Gérer le partage d'images de VM personnalisées.",
+      "Distribuer uniquement des disques de données vides."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La galerie permet de centraliser, versionner et partager des images de VM entre différents abonnements et régions."
   },
   {
     "id": 412,
-    "question": "Dans un Availability Set, qu'est-ce qu'un Domaine de Faute (Fault Domain) ?",
-    "options": ["Un groupe de VM qui sont mises à jour simultanément.", "Un ensemble de matériel dans le centre de données (rack, alimentation, refroidissement) qui partage une source de panne unique.", "Le réseau virtuel.", "Le fuseau horaire du système d'exploitation."],
-    "correctAnswer": 1,
-    "explanation": "Les Fault Domains garantissent que les VM sont réparties sur différents racks physiques, ce qui protège contre les pannes matérielles localisées."
-  },
-  {
-    "id": 413,
-    "question": "Quelle est la principale source de coût lors de l'exécution d'une VM Azure ?",
-    "options": ["Coût du disque de données uniquement.", "Coût du compute (taille/type de VM) et coût du stockage (type et taille des disques gérés).", "Coût du réseau virtuel uniquement.", "Coût des sauvegardes uniquement."],
-    "correctAnswer": 1,
-    "explanation": "Le coût est principalement piloté par la taille et la durée d'exécution de la VM, ainsi que par les disques gérés (y compris les IOPS et le stockage réservé)."
-  },
-  {
-    "id": 414,
-    "question": "Quel est le rôle de l'Extension de VM (VM Extension) ?",
-    "options": ["Changer la taille de la VM.", "Installer et configurer des logiciels ou des fonctionnalités post-déploiement sur la VM (ex: antivirus, script personnalisé, agent Azure Monitoring).", "Déployer la VM dans une autre région.", "Réduire les coûts."],
-    "correctAnswer": 1,
-    "explanation": "Les extensions sont des petits programmes qui s'exécutent après le déploiement ou pendant l'exécution d'une VM, facilitant la configuration et le déploiement d'agents."
-  },
-  {
-    "id": 415,
-    "question": "Quel est le but principal de l'utilisation de Zones de Disponibilité (Availability Zones) pour les VM ?",
-    "options": ["Distribuer les VM dans différentes régions Azure.", "Distribuer les VM dans des centres de données distincts et isolés physiquement, au sein d'une même région, pour une meilleure résilience.", "Assurer la mise à l'échelle automatique.", "Réduire le temps de démarrage des VM."],
-    "correctAnswer": 1,
-    "explanation": "Les Availability Zones offrent la meilleure résilience dans une seule région, protégeant contre les pannes de centre de données complètes."
-  },
-  {
-    "id": 416,
-    "question": "Quel est le rôle d'un Load Balancer lorsqu'il est utilisé avec un VM Scale Set ?",
-    "options": ["Chiffrer les données.", "Distribuer le trafic entrant entre toutes les instances de VM dans le VMSS, assurant une répartition de charge et une haute disponibilité.", "Gérer la mise à l'échelle automatique.", "Stocker les disques de données."],
-    "correctAnswer": 1,
-    "explanation": "Le Load Balancer est essentiel pour diriger le trafic vers les instances saines du VMSS, garantissant que la charge de l'application est bien distribuée."
-  },
-  {
-    "id": 417,
-    "question": "Quelle est la différence fondamentale entre les VM Standard (Traditionnelles) et les VM Spot ?",
-    "options": ["Les VM Spot sont plus chères.", "Les VM Spot offrent des tarifs réduits car elles utilisent la capacité excédentaire d'Azure, mais elles peuvent être arrêtées à tout moment par Azure.", "Les VM Standard peuvent être arrêtées à tout moment.", "Les VM Spot sont uniquement utilisées pour Windows."],
-    "correctAnswer": 1,
-    "explanation": "Les VM Spot sont utilisées pour les charges de travail tolérantes aux pannes (ex: traitements par lots, environnements de développement/test) pour bénéficier d'économies significatives."
-  },
-  {
-    "id": 418,
-    "question": "Quel type de disque est créé par défaut pour une VM Windows/Linux et contient le système d'exploitation ?",
-    "options": ["Disque de données (Data Disk)", "Disque de cache (Cache Disk)", "Disque de système d'exploitation (OS Disk)", "Disque temporaire (Temporary Disk)"],
-    "correctAnswer": 2,
-    "explanation": "Le Disque OS est le disque principal sur lequel le système d'exploitation est installé et démarré. Il s'agit généralement d'un disque géré."
-  },
-  {
-    "id": 419,
-    "question": "Quelle est la principale façon d'arrêter les coûts liés au compute d'une VM ?",
-    "options": ["Désallouer (Deallocate) la VM.", "Éteindre (Shutdown) le système d'exploitation à l'intérieur de la VM.", "Changer la taille de la VM.", "Détacher les disques de données."],
+    "question": "Dans un Availability Set, qu'est-ce qu'un Domaine de Faute ?",
+    "options": [
+      "Un groupe de matériel partageant une source de panne.",
+      "Un ensemble de VM mises à jour au même moment.",
+      "Une partition logique du réseau virtuel (VNet).",
+      "Le fuseau horaire affecté au système d'exploitation."
+    ],
     "correctAnswer": 0,
-    "explanation": "L'arrêt dans le système d'exploitation ne met pas fin à la facturation du compute. Seule la désallocation (état 'Stopped (deallocated)') libère les ressources de calcul et arrête la facturation du compute."
-  },
-  {
-    "id": 420,
-    "question": "Quel est le format de fichier utilisé pour définir un Template ARM ?",
-    "options": ["XML", "YAML", "JSON", "CSV"],
-    "correctAnswer": 2,
-    "explanation": "Les Templates ARM utilisent le format JSON pour décrire les ressources Azure, leurs configurations et leurs relations."
-  },
-  {
-    "id": 421,
-    "question": "Quel est le rôle du Custom Script Extension pour les VM ?",
-    "options": ["Déployer la VM.", "Exécuter des scripts (PowerShell ou Bash) après le déploiement de la VM pour l'installation d'applications ou la configuration de l'OS.", "Gérer la mise à l'échelle automatique.", "Chiffrer les disques."],
-    "correctAnswer": 1,
-    "explanation": "Le Custom Script Extension est un outil essentiel pour la post-configuration des VM, permettant l'injection et l'exécution de code sur la VM elle-même."
-  },
-  {
-    "id": 422,
-    "question": "Quel est l'objectif des VM Scale Sets en mode Flexibles (Flexible Orchestration) ?",
-    "options": ["Remplacer les Availability Sets.", "Permettre la mise à l'échelle automatique tout en donnant à l'utilisateur le contrôle sur les instances individuelles (taille, arrêt/démarrage, etc.), combinant les avantages de VMSS et de VM uniques.", "Utiliser uniquement des VM Spot.", "Réduire les coûts."],
-    "correctAnswer": 1,
-    "explanation": "Le mode Flexible permet une grande flexibilité de déploiement et d'orchestration pour les charges de travail qui nécessitent un mélange de scalabilité et de contrôle granulaire (ex: haute disponibilité avec AZs)."
-  },
-  {
-    "id": 423,
-    "question": "Quel outil Azure permet de capturer une VM existante (généralisée) pour créer une Image de VM personnalisée ?",
-    "options": ["Azure Load Balancer", "Azure DNS", "Azure Compute Gallery (Shared Image Gallery) ou l'outil `Sysprep` pour Windows / `waagent` pour Linux.", "Azure Bastion"],
-    "correctAnswer": 2,
-    "explanation": "L'image doit être généralisée (retrait des informations uniques comme le SID Windows) avant d'être capturée et stockée dans une Compute Gallery."
-  },
-  {
-    "id": 424,
-    "question": "Quel est le rôle d'un Disque Temporaire (Temporary Disk) sur une VM Azure ?",
-    "options": ["Stocker les fichiers du système d'exploitation.", "Fournir un stockage éphémère à faible latence (basé sur le SSD local de l'hôte), utilisé pour le fichier d'échange/cache, dont les données sont perdues lors de la désallocation de la VM.", "Stocker des sauvegardes.", "Assurer la haute disponibilité."],
-    "correctAnswer": 1,
-    "explanation": "Le disque temporaire (souvent monté sous D: ou /dev/sdb) ne doit jamais être utilisé pour stocker des données persistantes, car Azure ne garantit pas la conservation de ses données."
-  },
-  {
-    "id": 425,
-    "question": "Quel est l'avantage principal d'utiliser des Disques Gérés (Managed Disks) par rapport aux Disques Non Gérés (Unmanaged Disks) ?",
-    "options": ["Les Disques Non Gérés sont plus chers.", "Les Disques Gérés simplifient la gestion du stockage (haute disponibilité, réplication, évolutivité) et ne nécessitent pas de compte de stockage par l'utilisateur.", "Les Disques Gérés sont uniquement utilisés pour Linux.", "Les Disques Gérés n'ont pas de limite de IOPS."],
-    "correctAnswer": 1,
-    "explanation": "Azure gère le compte de stockage sous-jacent pour les Disques Gérés, ce qui est la meilleure pratique pour toutes les nouvelles VM."
-  },
-  {
-    "id": 426,
-    "question": "Quel service Azure permet de fournir une connectivité sécurisée au port RDP ou SSH de la VM sans exposer le port public sur Internet ?",
-    "options": ["Azure VPN Gateway", "Azure Firewall", "Azure Bastion", "Azure ExpressRoute"],
-    "correctAnswer": 2,
-    "explanation": "Azure Bastion est un service PaaS qui s'exécute dans votre VNet et fournit une connexion RDP/SSH sécurisée via SSL/TLS dans votre navigateur, sans nécessiter d'IP publique sur la VM."
-  },
-  {
-    "id": 427,
-    "question": "Quel est le but d'une Règle de Mise à l'Échelle Automatique (Autoscale Rule) dans un VM Scale Set ?",
-    "options": ["Arrêter toutes les VM en cas de panne.", "Définir la logique (conditions, seuils, actions) pour augmenter ou diminuer automatiquement le nombre d'instances de VM en fonction de métriques (ex: CPU, mémoire, trafic).", "Limiter le nombre d'utilisateurs qui peuvent se connecter.", "Changer la taille des disques de données."],
-    "correctAnswer": 1,
-    "explanation": "Les règles Autoscale sont le cœur de VMSS, permettant à l'application de s'adapter dynamiquement à la charge de travail."
-  },
-  {
-    "id": 428,
-    "question": "Quel est l'impact de l'utilisation d'une Politique Azure (Azure Policy) sur le déploiement des VM ?",
-    "options": ["La Politique Azure remplace les templates ARM.", "La Politique Azure permet de définir et d'appliquer des règles de gouvernance (ex: forcer l'utilisation de VM dans des AZs spécifiques ou un type de disque particulier) au moment du déploiement.", "La Politique Azure arrête la facturation.", "La Politique Azure déploie des conteneurs."],
-    "correctAnswer": 1,
-    "explanation": "Azure Policy assure la conformité et la sécurité en vérifiant les configurations des ressources avant ou après leur création (Audit/Deny)."
-  },
-  {
-    "id": 429,
-    "question": "Quelle est la méthode recommandée pour chiffrer les disques OS et de données des VM Azure (chiffrement de bout en bout) ?",
-    "options": ["Azure Disk Encryption (ADE) ou Server-Side Encryption (SSE) avec des clés gérées par le client (CMK).", "Azure Storage Encryption (ASE)", "HTTPS", "Chiffrement du réseau virtuel."],
-    "correctAnswer": 0,
-    "explanation": "ADE utilise BitLocker (Windows) ou DM-Crypt (Linux) et s'intègre à Azure Key Vault. SSE avec CMK est également une option pour le chiffrement au repos."
-  },
-  {
-    "id": 430,
-    "question": "Si vous déployez des VM dans des Availability Zones, combien de Zones de Disponibilité sont généralement disponibles par région ?",
-    "options": ["Une seule Zone.", "Deux Zones.", "Trois Zones.", "Cinq Zones."],
-    "correctAnswer": 2,
-    "explanation": "La plupart des régions Azure prenant en charge les AZs en proposent au moins trois, identifiées par Z1, Z2, Z3."
-  },
-  {
-    "id": 431,
-    "question": "Quel est l'impact si vous utilisez un VM Scale Set avec une Zone de Disponibilité ?",
-    "options": ["Le VMSS ne peut pas mettre à l'échelle.", "Le VMSS distribue automatiquement les instances de VM sur les Zones de Disponibilité spécifiées (ex: Z1, Z2, Z3) pour une résilience maximale à l'échelle régionale.", "Toutes les instances sont regroupées dans une seule Zone.", "L'utilisation de VMSS est bloquée."],
-    "correctAnswer": 1,
-    "explanation": "L'utilisation de VMSS avec des AZs est la meilleure pratique pour créer des applications résilientes à l'échelle régionale."
-  },
-  {
-    "id": 432,
-    "question": "Quel est le but des Identités Gérées (Managed Identities) sur une VM Azure ?",
-    "options": ["Gérer les secrets de l'utilisateur.", "Permettre à la VM de s'authentifier auprès d'autres services Azure (ex: Azure Key Vault, Azure Storage) en utilisant son identité Entra ID, sans avoir besoin de stocker des identifiants (secrets).", "Gérer la mise à l'échelle automatique.", "Créer des snapshots."],
-    "correctAnswer": 1,
-    "explanation": "Les Identités Gérées sont cruciales pour l'amélioration de la posture de sécurité en éliminant la nécessité de gérer des clés et des secrets manuellement."
-  },
-  {
-    "id": 433,
-    "question": "Quel est le rôle d'un Set de Proximité (Proximity Placement Group - PPG) ?",
-    "options": ["Distribuer les VM dans différentes zones.", "Regrouper les VM dans le même centre de données physique pour minimiser la latence du réseau entre elles (ex: pour des applications HPC ou de base de données).", "Gérer la mise à l'échelle automatique.", "Réduire le temps de démarrage des VM."],
-    "correctAnswer": 1,
-    "explanation": "Le PPG est utilisé lorsque les applications nécessitent la plus faible latence possible entre les VM, en s'assurant qu'elles sont physiquement proches."
-  },
-  {
-    "id": 434,
-    "question": "Quelle est la principale différence entre PowerShell et un Template ARM pour le déploiement de VM ?",
-    "options": ["PowerShell est déclaratif, ARM est impératif.", "PowerShell est impératif (vous définissez la séquence d'étapes à exécuter), ARM est déclaratif (vous définissez l'état final souhaité).", "PowerShell ne prend pas en charge les VM Linux.", "ARM ne peut pas déployer de réseau virtuel."],
-    "correctAnswer": 1,
-    "explanation": "Les outils impératifs (PowerShell, CLI) sont excellents pour les opérations ponctuelles, tandis que les outils déclaratifs (ARM, Bicep, Terraform) sont préférables pour l'infrastructure en tant que code."
-  },
-  {
-    "id": 435,
-    "question": "Quel est l'impact de l'utilisation de VMs de série B (Burstable VMs) ?",
-    "options": ["Elles ont toujours les mêmes performances CPU.", "Elles offrent des performances de base (CPU) faibles, mais peuvent accumuler des crédits CPU pour exploser temporairement à des niveaux plus élevés, ce qui les rend idéales pour les charges de travail qui ne sont pas toujours sollicitées.", "Elles sont très chères.", "Elles ne supportent que Linux."],
-    "correctAnswer": 1,
-    "explanation": "Les B-Series sont parfaites pour les serveurs de développement, les serveurs Web à faible trafic ou les petites bases de données, offrant un excellent rapport coût-performance pour les charges de travail non critiques."
-  },
-  {
-    "id": 436,
-    "question": "Quel est le rôle du Boot Diagnostics sur une VM Azure ?",
-    "options": ["Chiffrer le disque OS.", "Collecter la sortie de la console et les captures d'écran de l'état de démarrage de la VM pour aider au dépannage des problèmes de démarrage.", "Gérer la mise à l'échelle automatique.", "Installer des extensions."],
-    "correctAnswer": 1,
-    "explanation": "Boot Diagnostics est une fonctionnalité essentielle pour identifier pourquoi une VM ne démarre pas correctement (ex: erreur de configuration du système d'exploitation)."
-  },
-  {
-    "id": 437,
-    "question": "Dans un VM Scale Set, que se passe-t-il lors d'une opération de mise à l'échelle (Scale In) ?",
-    "options": ["De nouvelles VM sont ajoutées.", "Le nombre d'instances de VM est réduit selon la règle de mise à l'échelle ou l'opération manuelle.", "La taille de toutes les VM est augmentée.", "Le disque de données est détaché."],
-    "correctAnswer": 1,
-    "explanation": "L'opération Scale In est la réduction du nombre d'instances dans le VMSS, généralement lorsque l'utilisation des ressources est faible."
-  },
-  {
-    "id": 438,
-    "question": "Quel est le but d'utiliser la commande `az vm run-command` dans Azure CLI ?",
-    "options": ["Déployer la VM.", "Exécuter des scripts ou des commandes directement sur une VM Azure existante (Windows ou Linux) sans avoir à se connecter par SSH ou RDP.", "Changer la taille de la VM.", "Gérer la facturation."],
-    "correctAnswer": 1,
-    "explanation": "Le Run Command est un outil de gestion d'urgence ou de configuration rapide, utilisant une extension pour exécuter des commandes à distance."
-  },
-  {
-    "id": 439,
-    "question": "Quel est l'impact si vous attachez un Disque Ultra SSD à une VM ?",
-    "options": ["Le disque est gratuit.", "Il fournit des performances exceptionnelles et une latence extrêmement faible, avec la possibilité d'ajuster dynamiquement les IOPS et le débit sans redémarrer la VM.", "Il est uniquement utilisé pour le disque OS.", "Il ne prend pas en charge la sauvegarde."],
-    "correctAnswer": 1,
-    "explanation": "Ultra SSD est la solution de stockage la plus performante d'Azure, conçue pour les charges de travail critiques et intensives en I/O."
-  },
-  {
-    "id": 440,
-    "question": "Quelle est la principale mesure de sécurité lors de la création d'une VM Linux pour empêcher l'accès non autorisé via SSH ?",
-    "options": ["Désactiver le disque temporaire.", "Utiliser une paire de clés SSH (publique/privée) plutôt qu'un simple mot de passe.", "Utiliser uniquement HTTP.", "Activer la mise à l'échelle automatique."],
-    "correctAnswer": 1,
-    "explanation": "L'authentification par clé SSH est beaucoup plus sécurisée que l'utilisation d'un mot de passe (qui peut être piraté par force brute) et est la méthode recommandée."
-  },
-  {
-    "id": 441,
-    "question": "Quel est le rôle d'un Application Gateway lorsqu'il est utilisé avec un VM Scale Set ?",
-    "options": ["Distribuer le trafic uniquement au niveau réseau (couche 3).", "Distribuer le trafic au niveau applicatif (couche 7) en fonction de l'URL ou du chemin d'accès, et fournir des fonctionnalités comme le déchargement SSL/TLS et un WAF (Web Application Firewall).", "Changer la taille des VM.", "Gérer la facturation."],
-    "correctAnswer": 1,
-    "explanation": "Application Gateway est un Load Balancer intelligent (L7), idéal pour les applications Web devant gérer des requêtes complexes et des besoins de sécurité avancés."
-  },
-  {
-    "id": 442,
-    "question": "Comment pouvez-vous vous assurer qu'une VM est restaurée si elle tombe en panne au niveau de l'hôte physique (Host Failure) ?",
-    "options": ["En utilisant uniquement un Disque Ultra SSD.", "En déployant la VM dans un Availability Set ou une Availability Zone.", "En utilisant uniquement RDP.", "En la désallouant."],
-    "correctAnswer": 1,
-    "explanation": "Les VM déployées dans un AS ou une AZ bénéficient d'une résilience intégrée, et Azure garantit leur redémarrage sur un hôte sain en cas de défaillance matérielle."
-  },
-  {
-    "id": 443,
-    "question": "Quel est l'outil Azure CLI pour créer une image généralisée d'une VM Linux après l'exécution de `waagent -deprovision+user` ?",
-    "options": ["`az vm image create`", "`az vm create`", "`az snapshot create`", "`az storage copy`"],
-    "correctAnswer": 0,
-    "explanation": "La commande `az vm image create` permet de capturer l'état actuel de la VM (qui a été généralisée) pour en faire une image réutilisable."
-  },
-  {
-    "id": 444,
-    "question": "Quelle est la principale limite d'un Groupe de Disponibilité (Availability Set) en termes de résilience ?",
-    "options": ["Il ne prend en charge que les VM Windows.", "Il ne peut protéger les VM qu'en cas de panne au sein d'un seul centre de données (il ne protège pas contre une panne régionale).", "Il ne peut pas utiliser le Disque Premium SSD.", "Il ne prend pas en charge la mise à l'échelle automatique."],
-    "correctAnswer": 1,
-    "explanation": "Pour une protection régionale, les Availability Zones sont nécessaires, car un AS est lié à un seul centre de données."
-  },
-  {
-    "id": 445,
-    "question": "Quel est le rôle de la Gestion du Patch (Patch Management) dans le contexte d'une VM IaaS ?",
-    "options": ["Azure gère automatiquement tous les correctifs.", "L'administrateur Azure (l'utilisateur) est responsable de l'application des correctifs de sécurité et des mises à jour du système d'exploitation à l'intérieur de la VM.", "Le Patch Management est géré par la SAS.", "Le Patch Management est remplacé par Azure Bastion."],
-    "correctAnswer": 1,
-    "explanation": "Dans IaaS, vous êtes responsable du système d'exploitation invité, y compris la gestion des correctifs, sauf si vous utilisez des services PaaS ou une solution de gestion comme Azure Automation/Update Management."
-  },
-  {
-    "id": 446,
-    "question": "Quel est le risque de l'utilisation de Disques Non Gérés (Unmanaged Disks) ?",
-    "options": ["Ils sont trop rapides.", "L'utilisateur est responsable de la gestion des comptes de stockage sous-jacents (ex: atteinte des limites de IOPS et de débit du compte de stockage), ce qui peut causer des problèmes de performance et de disponibilité.", "Ils sont uniquement pour Linux.", "Ils sont automatiquement chiffrés par CMK."],
-    "correctAnswer": 1,
-    "explanation": "Les disques non gérés sont une ancienne approche et ne sont pas recommandés pour les nouveaux déploiements."
-  },
-  {
-    "id": 447,
-    "question": "Quel est le but des VM Scale Sets en mode Uniform (Uniform Orchestration) ?",
-    "options": ["Contrôler chaque instance individuellement.", "Fournir un mécanisme de déploiement et de mise à l'échelle automatique plus simple, où toutes les instances sont traitées de manière identique et gérées comme un seul ensemble.", "Utiliser uniquement des VM Spot.", "Assurer la résilience régionale."],
-    "correctAnswer": 1,
-    "explanation": "Le mode Uniform est l'approche traditionnelle de VMSS, idéale pour les charges de travail sans état (stateless) ou les grandes fermes de calcul (web farms) où le contrôle individuel n'est pas nécessaire."
+    "explanation": "Les Fault Domains répartissent les VM sur différents racks pour éviter qu'une panne matérielle n'impacte tout le groupe."
   },
   
   {
-    "id": 448,
-    "question": "Si vous devez modifier un paramètre réseau après le déploiement d'une VM (ex: ajouter une IP publique), quel composant modifiez-vous ?",
-    "options": ["Le VNet.", "Le Disque OS.", "L'Interface Réseau (NIC) de la VM.", "Le Cloud Shell."],
+    "id": 413,
+    "question": "Quelle est la principale source de coût d'une VM Azure ?",
+    "options": [
+      "Le transfert de données entrant dans le VNet.",
+      "Le coût du disque de données uniquement.",
+      "Le compute et le stockage des disques gérés.",
+      "Le coût de l'adresse IP privée statique."
+    ],
     "correctAnswer": 2,
-    "explanation": "La NIC est l'élément qui porte la configuration IP et les règles de sécurité (NSG) spécifiques à la VM."
+    "explanation": "La facturation repose sur la taille de l'instance (compute) et la réservation de l'espace disque (managed disks)."
+  },
+  {
+    "id": 414,
+    "question": "Quel est le rôle principal d'une Extension de VM ?",
+    "options": [
+      "Modifier dynamiquement la taille de la VM.",
+      "Installer des logiciels après le déploiement.",
+      "Déplacer la VM vers une autre région Azure.",
+      "Réduire les coûts de calcul de l'instance."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Les extensions permettent d'automatiser des tâches post-déploiement comme l'installation d'antivirus ou d'agents de monitoring."
+  },
+  {
+    "id": 415,
+    "question": "Quel est le but des Zones de Disponibilité (AZ) ?",
+    "options": [
+      "Réduire le temps de démarrage des instances.",
+      "Isoler les VM dans des datacenters distincts.",
+      "Assurer une mise à l'échelle automatique.",
+      "Distribuer les VM sur plusieurs régions."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Les AZ protègent contre la panne complète d'un centre de données au sein d'une même région Azure."
+  },
+  
+  {
+    "id": 416,
+    "question": "Quel est le rôle du Load Balancer avec un VM Scale Set ?",
+    "options": [
+      "Chiffrer les données au repos sur les disques.",
+      "Distribuer le trafic entre toutes les instances.",
+      "Gérer la mise à l'échelle automatique (Autoscale).",
+      "Stocker les snapshots des disques de données."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Le Load Balancer répartit les requêtes entrantes vers les instances saines du jeu d'instances identiques (VMSS)."
+  },
+  {
+    "id": 417,
+    "question": "Quelle est la caractéristique majeure des VM Spot ?",
+    "options": [
+      "Elles sont facturées au double du tarif standard.",
+      "Elles peuvent être interrompues par Azure.",
+      "Elles sont réservées aux systèmes Windows.",
+      "Elles offrent des performances CPU garanties."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Les VM Spot utilisent la capacité excédentaire d'Azure à prix réduit, mais peuvent être récupérées par Azure à tout moment."
+  },
+  {
+    "id": 418,
+    "question": "Quel disque contient le système d'exploitation par défaut ?",
+    "options": [
+      "Le Disque de données (Data Disk).",
+      "Le Disque de cache (Cache Disk).",
+      "Le Disque système (OS Disk).",
+      "Le Disque éphémère (Temp Disk)."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Le disque OS contient le boot loader et le système d'exploitation nécessaire au démarrage de la machine virtuelle."
+  },
+  {
+    "id": 419,
+    "question": "Quelle action arrête la facturation du compute d'une VM ?",
+    "options": [
+      "Désallouer la VM via le portail Azure.",
+      "Éteindre l'OS depuis la session utilisateur.",
+      "Détacher tous les disques de données.",
+      "Supprimer l'adresse IP publique de la VM."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Seul l'état 'Stopped (Deallocated)' libère les ressources matérielles et stoppe la facturation de la puissance de calcul."
+  },
+  {
+    "id": 420,
+    "question": "Quel format de fichier définit un Template ARM ?",
+    "options": [
+      "Le format XML (Extensible Markup).",
+      "Le format YAML (Yet Another Markup).",
+      "Le format JSON (JavaScript Object).",
+      "Le format CSV (Comma Separated)."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Les modèles Azure Resource Manager (ARM) utilisent la syntaxe JSON pour décrire l'infrastructure."
+  },
+  {
+    "id": 421,
+    "question": "À quoi sert le 'Custom Script Extension' ?",
+    "options": [
+      "Déployer la VM dans une zone spécifique.",
+      "Exécuter des scripts après le déploiement.",
+      "Gérer les règles de mise à l'échelle.",
+      "Chiffrer les communications réseau."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cette extension permet d'injecter et d'exécuter des scripts Bash ou PowerShell pour configurer l'OS automatiquement."
+  },
+  {
+    "id": 422,
+    "question": "Quel est l'avantage du mode Flexible pour les VMSS ?",
+    "options": [
+      "Remplacer les Availability Sets classiques.",
+      "Combiner mise à l'échelle et contrôle individuel.",
+      "Utiliser uniquement des instances de type Spot.",
+      "Réduire les coûts de stockage des disques gérés."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Le mode Flexible permet de gérer des VM individuelles au sein d'un groupe tout en bénéficiant de la haute disponibilité."
+  },
+  {
+    "id": 423,
+    "question": "Quel outil prépare une VM Windows avant capture ?",
+    "options": [
+      "L'outil Azure Load Balancer.",
+      "L'outil Azure DNS Forwarder.",
+      "L'outil Sysprep du système Windows.",
+      "L'outil Azure Bastion Manager."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Sysprep permet de généraliser l'image en supprimant les informations de sécurité uniques (SID) avant la capture."
+  },
+  {
+    "id": 424,
+    "question": "Quel est l'usage du Disque Temporaire (D: ou /dev/sdb) ?",
+    "options": [
+      "Stocker les fichiers systèmes Windows.",
+      "Servir de stockage éphémère (cache/swap).",
+      "Sauvegarder les données critiques des utilisateurs.",
+      "Assurer la haute disponibilité des fichiers."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Le disque temporaire est lié à l'hôte physique ; ses données sont perdues si la VM est déplacée ou désallouée."
+  },
+  {
+    "id": 425,
+    "question": "Quel est l'avantage principal des Disques Gérés ?",
+    "options": [
+      "Ils sont moins chers que les non gérés.",
+      "Ils simplifient la gestion du stockage.",
+      "Ils sont réservés aux environnements Linux.",
+      "Ils n'ont aucune limite de performance IOPS."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure gère les comptes de stockage en arrière-plan, offrant une meilleure fiabilité et simplicité d'utilisation."
+  },
+  {
+    "id": 426,
+    "question": "Quel service sécurise l'accès RDP/SSH sans IP publique ?",
+    "options": [
+      "Le service Azure VPN Gateway.",
+      "Le service Azure Firewall Premium.",
+      "Le service Azure Bastion.",
+      "Le service Azure ExpressRoute."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Bastion permet une connexion sécurisée via le navigateur sans exposer la VM sur Internet."
+  },
+  {
+    "id": 427,
+    "question": "À quoi sert une Autoscale Rule dans un VMSS ?",
+    "options": [
+      "Arrêter les VM en cas de cyberattaque.",
+      "Ajuster le nombre de VM selon la charge.",
+      "Limiter les connexions simultanées par VM.",
+      "Changer automatiquement la taille des disques."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Les règles d'Autoscale permettent d'ajouter ou de supprimer des instances en fonction de métriques comme le CPU."
+  },
+  {
+    "id": 428,
+    "question": "Quel est l'impact d'Azure Policy sur les VM ?",
+    "options": [
+      "Elle remplace les templates ARM JSON.",
+      "Elle applique des règles de conformité.",
+      "Elle arrête automatiquement la facturation.",
+      "Elle déploie des conteneurs Kubernetes."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Policy permet d'imposer des contraintes (ex: type de VM autorisé) pour garantir la gouvernance."
+  },
+  {
+    "id": 429,
+    "question": "Quelle méthode chiffre les disques de bout en bout ?",
+    "options": [
+      "Azure Disk Encryption (ADE).",
+      "Le service Azure Storage Encryption.",
+      "Le protocole HTTPS classique.",
+      "Le chiffrement natif du VNet."
+    ],
+    "correctAnswer": 0,
+    "explanation": "ADE utilise BitLocker ou DM-Crypt pour chiffrer les volumes à l'intérieur de la machine virtuelle."
+  },
+  {
+    "id": 430,
+    "question": "Combien de Zones de Disponibilité offre une région ?",
+    "options": [
+      "Une seule zone par région.",
+      "Deux zones redondantes.",
+      "Trois zones distinctes.",
+      "Cinq zones de sécurité."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La majorité des régions Azure compatibles avec les AZ disposent de trois zones isolées."
+  },
+  {
+    "id": 431,
+    "question": "Quel est l'impact de VMSS avec Availability Zones ?",
+    "options": [
+      "Le VMSS ne peut plus scaler.",
+      "Les instances sont réparties par zone.",
+      "Toutes les VM restent dans une zone.",
+      "Le déploiement est bloqué par Azure."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cela garantit que même si une zone entière tombe en panne, les instances des autres zones restent disponibles."
+  },
+  {
+    "id": 432,
+    "question": "À quoi servent les Managed Identities sur une VM ?",
+    "options": [
+      "Gérer les mots de passe de l'utilisateur.",
+      "S'authentifier sans stocker de secrets.",
+      "Gérer la mise à l'échelle automatique.",
+      "Créer des snapshots de disques gérés."
+    ],
+    "correctAnswer": 1,
+    "explanation": "L'identité gérée permet à la VM de se connecter à Key Vault ou SQL sans manipuler de clés d'accès."
+  },
+  {
+    "id": 433,
+    "question": "Quel est le rôle d'un Set de Proximité (PPG) ?",
+    "options": [
+      "Éloigner les VM pour plus de sécurité.",
+      "Regrouper les VM pour réduire la latence.",
+      "Gérer le cycle de vie des instances.",
+      "Réduire le temps de boot du système."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Un PPG place les VM physiquement proches dans le datacenter pour les besoins de performance réseau extrême."
+  },
+  {
+    "id": 434,
+    "question": "Quelle est la différence entre PowerShell et ARM ?",
+    "options": [
+      "PowerShell est déclaratif, ARM impératif.",
+      "PowerShell est impératif, ARM déclaratif.",
+      "PowerShell ne supporte pas Linux.",
+      "ARM ne peut pas créer de réseaux."
+    ],
+    "correctAnswer": 1,
+    "explanation": "PowerShell exécute une suite de commandes tandis que l'ARM décrit l'état final désiré."
+  },
+  {
+    "id": 435,
+    "question": "Quel est l'avantage des VM de série B (Burstable) ?",
+    "options": [
+      "Elles ont une performance fixe garantie.",
+      "Elles gèrent des pics de CPU temporaires.",
+      "Elles sont les plus onéreuses d'Azure.",
+      "Elles sont réservées aux bases Oracle."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Les Burstable VMs accumulent des crédits lors des périodes calmes pour les utiliser lors de pics d'activité."
+  },
+  {
+    "id": 436,
+    "question": "Quel est le rôle du Boot Diagnostics ?",
+    "options": [
+      "Chiffrer le volume de démarrage OS.",
+      "Aider au dépannage du démarrage VM.",
+      "Gérer l'ordre de boot des disques.",
+      "Installer des patchs de sécurité."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Il capture les logs de la console et des captures d'écran pour voir pourquoi un OS refuse de démarrer."
+  },
+  {
+    "id": 437,
+    "question": "Que se passe-t-il lors d'un 'Scale In' dans un VMSS ?",
+    "options": [
+      "Des instances sont ajoutées au pool.",
+      "Le nombre d'instances est réduit.",
+      "La taille CPU des VM augmente.",
+      "Les disques de données sont purgés."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Le Scale In consiste à supprimer des instances inutiles pour économiser des coûts quand la charge diminue."
+  },
+  {
+    "id": 438,
+    "question": "À quoi sert la commande 'az vm run-command' ?",
+    "options": [
+      "Créer une nouvelle VM via CLI.",
+      "Exécuter des scripts à distance.",
+      "Modifier le SKU de la VM actuelle.",
+      "Afficher la facture mensuelle."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Elle permet de lancer un script dans l'OS sans avoir besoin d'ouvrir de port RDP ou SSH."
+  },
+  {
+    "id": 439,
+    "question": "Quel est l'impact d'un Disque Ultra SSD ?",
+    "options": [
+      "Il est totalement gratuit à l'usage.",
+      "Il permet d'ajuster les IOPS à chaud.",
+      "Il est réservé aux fichiers de boot.",
+      "Il ne permet aucune sauvegarde."
+    ],
+    "correctAnswer": 1,
+    "explanation": "L'Ultra SSD offre des performances modulables dynamiquement sans nécessiter de redémarrage."
+  },
+  {
+    "id": 440,
+    "question": "Comment sécuriser le SSH sur une VM Linux ?",
+    "options": [
+      "Supprimer le disque temporaire SSD.",
+      "Utiliser des clés SSH publiques/privées.",
+      "Autoriser uniquement le port HTTP.",
+      "Activer l'option Autoscale sur la VM."
+    ],
+    "correctAnswer": 1,
+    "explanation": "L'utilisation de clés privées est la norme de sécurité pour éviter les attaques par force brute sur les mots de passe."
+  },
+  {
+    "id": 441,
+    "question": "Quel est l'usage d'Application Gateway avec VMSS ?",
+    "options": [
+      "Répartir le trafic au niveau réseau (L3).",
+      "Répartir le trafic au niveau applicatif (L7).",
+      "Changer le type de processeur des VM.",
+      "Gérer les abonnements de facturation."
+    ],
+    "correctAnswer": 1,
+    "explanation": "L'App Gateway permet de router le trafic selon l'URL et offre une protection via un Pare-feu applicatif (WAF)."
+  },
+  {
+    "id": 442,
+    "question": "Comment résister à une panne d'hôte physique ?",
+    "options": [
+      "Utiliser un disque de type Ultra SSD.",
+      "Utiliser des Availability Sets ou Zones.",
+      "Se connecter uniquement via RDP.",
+      "Désallouer manuellement la machine."
+    ],
+    "correctAnswer": 1,
+    "explanation": "En répartissant les VM sur différents matériels via AS ou AZ, on garantit que la panne d'un hôte ne coupe pas le service."
+  },
+  {
+    "id": 443,
+    "question": "Quelle commande CLI capture une image Linux ?",
+    "options": [
+      "az vm image create",
+      "az vm create",
+      "az snapshot create",
+      "az storage copy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cette commande permet de transformer une VM généralisée en une image réutilisable dans une galerie."
+  },
+  {
+    "id": 444,
+    "question": "Quelle est la limite majeure d'un Availability Set ?",
+    "options": [
+      "Il ne supporte que les VM Windows.",
+      "Il ne protège pas contre une panne de zone.",
+      "Il refuse les disques Premium SSD.",
+      "Il bloque la mise à l'échelle automatique."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Un AS est confiné à un seul centre de données ; il ne protège pas contre un incident majeur touchant tout le bâtiment."
+  },
+  {
+    "id": 445,
+    "question": "Qui gère les patchs OS sur une VM IaaS ?",
+    "options": [
+      "Le support Microsoft Azure Cloud.",
+      "L'utilisateur final (le client).",
+      "Le service Azure Storage Blob.",
+      "L'extension Azure Bastion Proxy."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dans le modèle IaaS, l'utilisateur a le contrôle total et donc la responsabilité de la maintenance de son OS."
+  },
+  {
+    "id": 446,
+    "question": "Quel est le risque des Disques Non Gérés ?",
+    "options": [
+      "Ils sont trop performants pour le prix.",
+      "L'utilisateur doit gérer les limites de stockage.",
+      "Ils sont limités aux distributions Linux.",
+      "Ils sont chiffrés par défaut via CMK."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Ils demandent une gestion manuelle des comptes de stockage, avec des risques de saturation de performance (IOPS)."
+  },
+  {
+    "id": 447,
+    "question": "Quel est le but du mode Uniform pour les VMSS ?",
+    "options": [
+      "Modifier chaque instance à la main.",
+      "Gérer des instances identiques en masse.",
+      "Forcer l'usage exclusif de VM Spot.",
+      "Garantir une résilience entre régions."
+    ],
+    "correctAnswer": 1,
+    "explanation": "C'est le mode classique pour les fermes web où toutes les VM sont créées à partir du même modèle exact."
+  },
+  {
+    "id": 448,
+    "question": "Où modifie-t-on l'IP publique d'une VM ?",
+    "options": [
+      "Dans les paramètres du VNet global.",
+      "Sur le disque dur OS de la machine.",
+      "Sur l'interface réseau (NIC) associée.",
+      "Directement dans l'outil Cloud Shell."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La carte réseau virtuelle (NIC) est le composant qui fait le lien entre la VM et ses configurations d'adressage IP."
   },
   {
     "id": 449,
-    "question": "Quelle est l'exigence pour qu'une VM Linux utilise l'authentification par Clé SSH ?",
-    "options": ["La clé publique doit être sur la VM et la privée sur le client.", "La clé privée doit être stockée dans la VM.", "Uniquement le mot de passe est autorisé.", "La clé privée doit être chiffrée par CMK."],
+    "question": "Quelle est l'exigence pour le SSH par clé ?",
+    "options": [
+      "Clé publique sur VM, privée sur client.",
+      "Clé privée stockée directement sur la VM.",
+      "Seuls les mots de passe sont permis.",
+      "La clé doit être chiffrée par CMK."
+    ],
     "correctAnswer": 0,
-    "explanation": "Le serveur utilise la clé publique pour authentifier la connexion initiée par la clé privée correspondante."
+    "explanation": "Le client SSH prouve son identité en utilisant sa clé privée pour répondre au défi envoyé par la clé publique sur le serveur."
   },
   {
     "id": 450,
-    "question": "Quel est l'impact si vous tentez de réduire la taille d'un Disque Géré ?",
-    "options": ["L'opération est autorisée immédiatement.", "Le disque est automatiquement chiffré.", "La VM est supprimée.", "Le redimensionnement vers une taille inférieure n'est pas pris en charge."],
+    "question": "Que se passe-t-il si on réduit la taille d'un disque ?",
+    "options": [
+      "Le changement est appliqué immédiatement.",
+      "Le disque passe en mode lecture seule.",
+      "La VM redémarre pour valider le changement.",
+      "L'opération est interdite par Azure."
+    ],
     "correctAnswer": 3,
-    "explanation": "Azure bloque la réduction de taille pour prévenir toute corruption ou perte de données du système de fichiers."
+    "explanation": "Azure interdit la réduction de taille pour éviter d'écraser des données existantes sur le système de fichiers."
   },
   {
     "id": 451,
