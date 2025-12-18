@@ -8,6 +8,7 @@ import quizDataJson from '../data/quiz.json'
 import './page.scss'
 
 type QuizQuestion = {
+  id: number | string // AJOUT DE L'ID ICI
   question: string
   options: string[]
   correctAnswer: number
@@ -25,9 +26,8 @@ export default function QuizApp() {
   const [submitted, setSubmitted] = useState(false)
   const [score, setScore] = useState(0)
 
-  // Charger 60 questions aléatoires
   useEffect(() => {
-    const shuffled = shuffleArray(quizDataJson).slice(0, TOTAL_QUESTIONS)
+    const shuffled = shuffleArray(quizDataJson as QuizQuestion[]).slice(0, TOTAL_QUESTIONS)
     setQuizQuestions(shuffled)
   }, [])
 
@@ -53,7 +53,7 @@ export default function QuizApp() {
   }
 
   const handleReset = () => {
-    const shuffled = shuffleArray(quizDataJson).slice(0, TOTAL_QUESTIONS)
+    const shuffled = shuffleArray(quizDataJson as QuizQuestion[]).slice(0, TOTAL_QUESTIONS)
     setQuizQuestions(shuffled)
     setUserAnswers([])
     setCurrentIndex(0)
@@ -65,7 +65,7 @@ export default function QuizApp() {
   const percent = Math.round((score / quizQuestions.length) * 100)
 
   // ------------------
-  // DOWNLOAD UTILITIES
+  // DOWNLOAD UTILITIES (Mis à jour avec ID)
   // ------------------
 
   const downloadFile = (filename: string, content: string) => {
@@ -85,7 +85,7 @@ export default function QuizApp() {
     text += "----------------------------------------\n\n"
 
     quizQuestions.forEach((q, i) => {
-      text += `Question ${i + 1}: ${q.question}\n`
+      text += `ID: ${q.id} - Question ${i + 1}: ${q.question}\n` // ID AJOUTÉ
       text += `Your answer: ${q.options[userAnswers[i]]}\n`
       text += `Correct answer: ${q.options[q.correctAnswer]}\n`
       text += `Explanation: ${q.explanation}\n`
@@ -97,30 +97,21 @@ export default function QuizApp() {
 
   const generateJSON = () => {
     const data = quizQuestions.map((q, i) => ({
+      id: q.id, // ID AJOUTÉ
       question: q.question,
       yourAnswer: q.options[userAnswers[i]],
       correctAnswer: q.options[q.correctAnswer],
       explanation: q.explanation,
     }))
 
-    return JSON.stringify(
-      {
-        score,
-        total: quizQuestions.length,
-        percent,
-        errors,
-        results: data,
-      },
-      null,
-      2
-    )
+    return JSON.stringify({ score, total: quizQuestions.length, percent, errors, results: data }, null, 2)
   }
 
   const generateCSV = () => {
-    let csv = "Question;Your Answer;Correct Answer;Explanation\n"
+    let csv = "ID;Question;Your Answer;Correct Answer;Explanation\n" // HEADER AJOUTÉ
 
     quizQuestions.forEach((q, i) => {
-      csv += `"${q.question}";"${q.options[userAnswers[i]]}";"${q.options[q.correctAnswer]}";"${q.explanation}"\n`
+      csv += `${q.id};"${q.question}";"${q.options[userAnswers[i]]}";"${q.options[q.correctAnswer]}";"${q.explanation}"\n` // ID AJOUTÉ
     })
 
     return csv
@@ -131,8 +122,6 @@ export default function QuizApp() {
     if (format === "json") downloadFile("results.json", generateJSON())
     if (format === "csv") downloadFile("results.csv", generateCSV())
   }
-
-  // ------------------
 
   if (quizQuestions.length === 0) return <p>Loading...</p>
 
@@ -151,7 +140,13 @@ export default function QuizApp() {
         {!submitted ? (
           <div className="question-container">
             <Card className="question-card">
-              <h2 style={{ color: '#000' }}>Question {currentIndex + 1} / {quizQuestions.length}</h2>
+              {/* AFFICHAGE DE L'ID DANS L'UI */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <h2 style={{ color: '#000', margin: 0 }}>Question {currentIndex + 1} / {quizQuestions.length}</h2>
+                <span style={{ fontSize: '0.8rem', color: '#666', background: '#eee', padding: '2px 8px', borderRadius: '4px' }}>
+                  ID: {quizQuestions[currentIndex].id}
+                </span>
+              </div>
 
               <p style={{ color: '#000', fontWeight: 500 }}>
                 {quizQuestions[currentIndex].question}
@@ -170,7 +165,6 @@ export default function QuizApp() {
           <Card className="score-card">
             <CheckCircle2 />
             <h2>Quiz Completed!</h2>
-
             <p>Score: {score} / {quizQuestions.length}</p>
             <p>Errors: {errors}</p>
             <p>Percentage: {percent}%</p>
