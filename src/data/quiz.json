@@ -596,220 +596,220 @@
   },
   {
     "id": 70,
-    "question": "Dans le contexte de la gestion des licences Entra ID, quel rôle est responsable de l'attribution et de la révocation des licences aux utilisateurs et aux groupes ?",
-    "options": ["Administrateur d'utilisateurs (User Administrator)", "Administrateur global (Global Administrator)", "Administrateur de licence (License Administrator)", "Administrateur de la facturation (Billing Administrator)"],
+    "question": "Quel rôle est responsable de l'attribution des licences Entra ID ?",
+    "options": ["Administrateur d'utilisateurs.", "Administrateur global.", "Administrateur de licence.", "Administrateur de facturation."],
     "correctAnswer": 2,
     "explanation": "Le rôle 'Administrateur de licence' est spécifiquement conçu pour gérer l'attribution et l'utilisation des licences Entra ID et Microsoft 365."
   },
   {
     "id": 71,
-    "question": "Qu'est-ce qu'une 'Identité Gérée par le Système' (System-Assigned Managed Identity) ?",
-    "options": ["Une identité utilisateur créée pour les tâches automatisées.", "Une identité Entra ID créée et gérée automatiquement par Azure pour une seule ressource Azure.", "Un Service Principal créé manuellement.", "Une identité qui est stockée dans Azure Key Vault."],
+    "question": "Qu'est-ce qu'une 'Identité Gérée par le Système' (System-Assigned) ?",
+    "options": ["Un compte utilisateur automatisé.", "Une identité liée à une ressource.", "Un Service Principal manuel.", "Une clé d'accès Key Vault."],
     "correctAnswer": 1,
-    "explanation": "Une identité gérée par le système est liée au cycle de vie d'une ressource (VM, Function App, etc.) et est automatiquement gérée par Azure, sans besoin de gérer les secrets manuellement."
+    "explanation": "Une identité gérée par le système est liée au cycle de vie d'une ressource et est automatiquement gérée par Azure."
   },
   {
     "id": 72,
-    "question": "Quel est le but des 'Resource Locks' (Verrous de ressources) ?",
-    "options": ["Contrôler l'accès des utilisateurs aux données.", "Empêcher la suppression ou la modification accidentelle de ressources critiques.", "Limiter les coûts des ressources.", "Créer des alertes en cas de modification d'une ressource."],
+    "question": "Quel est le but principal des 'Resource Locks' (Verrous) ?",
+    "options": ["Contrôler l'accès aux données.", "Empêcher la suppression accidentelle.", "Limiter les coûts de stockage.", "Générer des alertes de sécurité."],
     "correctAnswer": 1,
-    "explanation": "Les verrous sont une mesure de gouvernance pour empêcher les suppressions ('CanNotDelete') ou modifications ('ReadOnly') non désirées, même par des utilisateurs ayant les permissions RBAC nécessaires."
+    "explanation": "Les verrous empêchent les suppressions ('CanNotDelete') ou modifications ('ReadOnly') non désirées, même par les administrateurs."
   },
   {
     "id": 73,
-    "question": "Quel est le principal avantage de l'utilisation des 'Management Groups' pour la gouvernance ?",
-    "options": ["Simplifier le déploiement de machines virtuelles.", "Permettre la gestion et l'application cohérente de Policies et de RBAC sur plusieurs abonnements.", "Stocker les identités des utilisateurs invités.", "Gérer la synchronisation avec l'Active Directory local."],
+    "question": "Quel est l'avantage des 'Management Groups' pour la gouvernance ?",
+    "options": ["Simplifier le déploiement de VMs.", "Appliquer des Policies sur plusieurs abonnements.", "Stocker des identités d'invités.", "Synchroniser l'AD on-premises."],
     "correctAnswer": 1,
-    "explanation": "Les Management Groups forment la couche la plus élevée dans la hiérarchie de gouvernance, essentielle pour l'uniformité des règles sur l'ensemble de l'entreprise."
+    "explanation": "Les Management Groups permettent l'application cohérente de Policies et de RBAC sur l'ensemble des abonnements d'une entreprise."
   },
   {
     "id": 74,
-    "question": "Quelle est la relation entre les tags et les groupes de ressources (Resource Groups) en termes d'héritage ?",
-    "options": ["Les tags appliqués au RG sont automatiquement hérités par toutes les ressources.", "Les tags appliqués au RG ne sont pas automatiquement hérités, mais peuvent être appliqués par Azure Policy.", "Seules les machines virtuelles héritent des tags du RG.", "Les tags du RG remplacent toujours les tags de la ressource."],
+    "question": "Comment les tags héritent-ils d'un Groupe de Ressources (RG) ?",
+    "options": ["L'héritage est toujours automatique.", "Il n'y a pas d'héritage par défaut.", "Seules les VMs héritent des tags.", "Le tag du RG remplace celui de la ressource."],
     "correctAnswer": 1,
-    "explanation": "Par défaut, les tags n'héritent pas du RG vers la ressource. Ce comportement doit être appliqué activement par un outil de gouvernance comme Azure Policy (effet 'Append' ou 'Modify')."
+    "explanation": "Par défaut, les tags n'héritent pas du RG. Ce comportement doit être appliqué via Azure Policy."
   },
   {
     "id": 75,
-    "question": "Si vous souhaitez utiliser le SSPR (Self-Service Password Reset), quelle est la licence minimale requise pour les utilisateurs ?",
-    "options": ["Une licence gratuite Entra ID est suffisante.", "Entra ID P1 (ou licence équivalente).", "Microsoft 365 Business Basic.", "Azure Standard Support Plan."],
+    "question": "Quelle licence est requise pour utiliser le SSPR (cloud) ?",
+    "options": ["Entra ID Free.", "Entra ID P1.", "Microsoft 365 Business Basic.", "Azure Standard Support."],
     "correctAnswer": 1,
-    "explanation": "Le SSPR pour les utilisateurs du cloud est une fonctionnalité incluse dans Entra ID P1 et P2, et non dans l'édition gratuite. (Note: La version hybride synchronisée depuis l'AD local peut utiliser la version gratuite avec certains prérequis)."
+    "explanation": "Le SSPR pour les utilisateurs du cloud est une fonctionnalité incluse dans les licences Entra ID P1 et P2."
   },
   {
     "id": 76,
-    "question": "Quelle est la première étape à effectuer si un utilisateur invité B2B doit accéder à une application qui nécessite une authentification Entra ID ?",
-    "options": ["Lui attribuer un rôle RBAC.", "L'inviter dans votre répertoire Entra ID.", "Lui fournir un mot de passe temporaire.", "Lui attribuer une licence Entra ID P2."],
+    "question": "Quelle est la première étape pour donner accès à un utilisateur externe (B2B) ?",
+    "options": ["Lui créer un mot de passe.", "L'inviter dans le tenant Entra ID.", "Lui assigner une licence P2.", "Lui donner un rôle de Lecteur."],
     "correctAnswer": 1,
-    "explanation": "L'utilisateur externe doit d'abord être invité dans votre répertoire (tenant) en tant qu'utilisateur 'Invité' pour qu'une identité puisse lui être associée."
+    "explanation": "L'utilisateur externe doit d'abord être invité en tant qu'utilisateur 'Invité' pour posséder une identité dans votre répertoire."
   },
   {
     "id": 77,
-    "question": "Quel est le 'scope' (portée) qui définit la limite de facturation et de paiement pour les ressources Azure ?",
-    "options": ["Resource Group", "Management Group", "Subscription", "Tenant Entra ID"],
+    "question": "Quel scope définit la limite de facturation dans Azure ?",
+    "options": ["Le Resource Group.", "Le Management Group.", "L'Abonnement.", "Le Tenant Entra ID."],
     "correctAnswer": 2,
-    "explanation": "L'abonnement (Subscription) est l'unité de facturation dans Azure. Il est également un niveau de scope pour RBAC et Azure Policy."
+    "explanation": "L'abonnement (Subscription) est l'unité de facturation et de paiement principale pour les ressources Azure."
   },
   {
     "id": 78,
-    "question": "Quel est l'effet d'une Azure Policy qui utilise l'option 'DeployIfNotExists' ?",
-    "options": ["Elle bloque le déploiement si la ressource est manquante.", "Elle déploie automatiquement une ressource spécifiée si la condition de la politique n'est pas remplie (par exemple, un journal de diagnostic manquant).", "Elle supprime la ressource si elle existe déjà.", "Elle audite la ressource seulement si elle n'est pas présente."],
+    "question": "Quel est l'effet d'une Azure Policy 'DeployIfNotExists' ?",
+    "options": ["Bloquer tout nouveau déploiement.", "Déployer automatiquement une ressource manquante.", "Supprimer les ressources existantes.", "Auditer sans modifier les ressources."],
     "correctAnswer": 1,
-    "explanation": "L'effet 'DeployIfNotExists' (DINE) est utilisé pour garantir que les ressources associées à la conformité (comme les logs, les extensions) sont automatiquement déployées si elles sont manquantes."
+    "explanation": "Cet effet (DINE) permet de déployer automatiquement des composants de conformité, comme des extensions ou des logs."
   },
   {
     "id": 79,
-    "question": "Quel est le danger principal de l'attribution d'un rôle RBAC avec un scope large (par exemple, abonnement entier) ?",
-    "options": ["Le rôle expirera après 90 jours.", "L'utilisateur ne pourra pas accéder aux ressources du Resource Group.", "Cela enfreint le principe du moindre privilège et augmente le risque de sécurité.", "Le Resource Group ne pourra plus être supprimé."],
+    "question": "Quel est le danger d'un rôle RBAC avec un scope trop large ?",
+    "options": ["Le rôle expire prématurément.", "L'accès est limité aux ressources.", "Violation du principe du moindre privilège.", "Le Resource Group devient verrouillé."],
     "correctAnswer": 2,
-    "explanation": "Attribuer des permissions au-delà du strict minimum requis (le moindre privilège) augmente le risque qu'une erreur ou une intention malveillante ait un impact plus large."
+    "explanation": "Attribuer trop de permissions augmente le 'blast radius' en cas d'erreur ou d'attaque sur le compte concerné."
   },
   {
     "id": 80,
-    "question": "Où l'état de conformité d'une ressource par rapport à une Azure Policy attribuée est-il affiché ?",
-    "options": ["Dans Azure Monitor Logs.", "Dans le panneau 'Conformité' d'Azure Policy.", "Dans Azure Advisor.", "Dans la configuration de l'accès conditionnel."],
+    "question": "Où l'état de conformité d'une ressource est-il affiché ?",
+    "options": ["Azure Monitor Logs.", "Tableau de bord Azure Policy.", "Azure Advisor.", "Accès Conditionnel."],
     "correctAnswer": 1,
-    "explanation": "Le tableau de bord de conformité d'Azure Policy affiche l'état de chaque ressource par rapport à chaque attribution de politique."
+    "explanation": "Le tableau de bord de conformité d'Azure Policy affiche l'état de chaque ressource par rapport aux politiques assignées."
   },
   {
     "id": 81,
-    "question": "Comment pouvez-vous accorder à une application (Service Principal) des autorisations en lecture seule sur tous les groupes de ressources d'un abonnement ?",
-    "options": ["En lui attribuant le rôle 'Propriétaire' au niveau de l'abonnement.", "En lui attribuant le rôle 'Lecteur' au niveau de l'abonnement.", "En lui attribuant le rôle 'Contributeur' sur chaque groupe de ressources.", "En créant une identité gérée par l'utilisateur."],
+    "question": "Comment donner un accès en lecture seule à une application sur tout un abonnement ?",
+    "options": ["Rôle Propriétaire au niveau RG.", "Rôle Lecteur sur l'abonnement.", "Rôle Contributeur sur chaque VM.", "Utiliser une identité gérée."],
     "correctAnswer": 1,
-    "explanation": "Le rôle 'Lecteur' sur l'abonnement s'hérite sur tous les groupes de ressources et ressources, accordant un accès en lecture seule, ce qui est conforme au principe du moindre privilège pour une application de surveillance."
+    "explanation": "Le rôle 'Lecteur' au niveau de l'abonnement s'hérite sur toutes les ressources en lecture seule."
   },
   {
     "id": 82,
-    "question": "Si un verrou 'ReadOnly' est appliqué à un Management Group, quelle est la conséquence pour un utilisateur ayant le rôle 'Contributeur' au niveau d'un abonnement enfant ?",
-    "options": ["L'utilisateur peut modifier les ressources, mais pas les supprimer.", "L'utilisateur peut tout modifier, car son rôle est plus bas dans la hiérarchie.", "L'utilisateur ne peut pas modifier ou supprimer les ressources, car les verrous priment sur les permissions RBAC.", "L'utilisateur peut supprimer les ressources, mais pas les modifier."],
+    "question": "Si un verrou 'ReadOnly' est mis sur un Management Group, quelle est la conséquence ?",
+    "options": ["Les modifications restent possibles.", "Le verrou est ignoré par les contributeurs.", "Les modifications sont bloquées sur tous les enfants.", "Le verrou ne s'applique qu'au groupe racine."],
     "correctAnswer": 2,
-    "explanation": "Les verrous de ressources (Resource Locks) priment sur toutes les autorisations RBAC, y compris celles des rôles 'Propriétaire' ou 'Contributeur', et sont hérités vers le bas."
+    "explanation": "Les verrous sont hérités. Un verrou ReadOnly au niveau supérieur bloque toute écriture sur les abonnements et ressources enfants."
   },
   {
     "id": 83,
-    "question": "Quel rôle est requis pour configurer la réinitialisation de mot de passe en libre-service (SSPR) dans Entra ID ?",
-    "options": ["Administrateur d'utilisateurs (User Administrator)", "Administrateur global (Global Administrator)", "Administrateur de licence (License Administrator)", "Administrateur du support technique (Helpdesk Administrator)"],
+    "question": "Quel rôle est requis pour configurer le SSPR dans Entra ID ?",
+    "options": ["Administrateur d'utilisateurs.", "Administrateur global.", "Administrateur de licence.", "Administrateur du support."],
     "correctAnswer": 1,
-    "explanation": "La configuration du SSPR est une tâche de gestion de l'identité qui nécessite le rôle Administrateur global ou Administrateur d'authentification (Authentication Administrator)."
+    "explanation": "La configuration du SSPR nécessite le rôle Administrateur global ou Administrateur d'authentification."
   },
   {
     "id": 84,
-    "question": "Si vous souhaitez limiter le coût total des machines virtuelles dans un groupe de ressources, quel outil de gestion des coûts est le plus efficace ?",
-    "options": ["Verrous de ressources (Resource Locks).", "Azure Policy avec l'effet 'Deny'.", "Un budget dans Azure Cost Management avec une alerte.", "Créer un tag 'Coût' sur toutes les VMs."],
+    "question": "Quel outil est le plus efficace pour limiter les coûts dans un RG ?",
+    "options": ["Verrous de ressources.", "Azure Policy effet Deny.", "Budgets avec alertes.", "Utilisation de Tags."],
     "correctAnswer": 2,
-    "explanation": "Les budgets dans Azure Cost Management alertent les parties prenantes lorsque les dépenses atteignent un seuil, permettant une intervention humaine pour limiter les coûts."
+    "explanation": "Les budgets dans Cost Management alertent les responsables et permettent d'automatiser des actions pour limiter les dépenses."
   },
   {
     "id": 85,
-    "question": "Quelle est la principale différence entre une 'Identité Gérée par le Système' et une 'Identité Gérée par l'Utilisateur' (User-Assigned Managed Identity) ?",
-    "options": ["L'identité gérée par l'utilisateur n'est pas chiffrée.", "L'identité gérée par l'utilisateur peut être partagée par plusieurs ressources Azure.", "L'identité gérée par le système a plus de permissions par défaut.", "L'identité gérée par l'utilisateur ne prend pas en charge RBAC."],
+    "question": "Quelle est la particularité d'une identité gérée par l'utilisateur (User-Assigned) ?",
+    "options": ["Elle n'est pas chiffrée par Azure.", "Elle peut être partagée par plusieurs ressources.", "Elle a plus de droits par défaut.", "Elle ne supporte pas le RBAC."],
     "correctAnswer": 1,
-    "explanation": "L'identité gérée par l'utilisateur (User-Assigned) est créée comme une ressource Azure indépendante et peut être attachée à plusieurs services. L'identité gérée par le système (System-Assigned) est liée à une seule ressource."
+    "explanation": "Une identité User-Assigned est une ressource indépendante que l'on peut attacher à plusieurs ressources simultanément."
   },
   {
     "id": 86,
-    "question": "Quel est le but des 'Tags' dans le contexte de l'optimisation des coûts ?",
-    "options": ["Ils appliquent automatiquement des budgets aux ressources.", "Ils permettent d'allouer les coûts à des départements ou des projets spécifiques pour l'analyse de la facturation.", "Ils limitent la taille des machines virtuelles.", "Ils remplacent les Resource Groups."],
+    "question": "Quel est le but des 'Tags' pour l'optimisation des coûts ?",
+    "options": ["Appliquer des budgets automatiques.", "Allouer les coûts par département.", "Limiter la taille des VMs.", "Remplacer les Resource Groups."],
     "correctAnswer": 1,
-    "explanation": "Les Tags (comme 'Cost Center' ou 'Environment') sont cruciaux pour l'analyse des coûts en permettant de regrouper et de filtrer les dépenses dans Azure Cost Management."
+    "explanation": "Les Tags permettent de filtrer les dépenses dans Cost Management pour identifier quel département consomme quoi."
   },
   {
     "id": 87,
-    "question": "Dans la gestion des abonnements, qu'est-ce qu'un 'Quota de Ressources' (Resource Quota) ?",
-    "options": ["Un budget financier alloué à l'abonnement.", "Une restriction sur le nombre maximal de ressources d'un certain type (ex: VMs, comptes de stockage) qui peuvent être créées dans l'abonnement.", "Une restriction sur les régions de déploiement.", "Un ensemble de politiques appliquées à l'abonnement."],
+    "question": "Qu'est-ce qu'un 'Quota de Ressources' dans Azure ?",
+    "options": ["Un montant financier maximum.", "Une limite sur le nombre de ressources.", "Une restriction sur les régions.", "Un ensemble de politiques de tag."],
     "correctAnswer": 1,
-    "explanation": "Les quotas sont des limites imposées par Azure pour garantir la disponibilité des ressources. Ils peuvent généralement être augmentés par une demande de support."
+    "explanation": "Les quotas limitent le nombre de ressources d'un certain type pour garantir la capacité régionale."
   },
   {
     "id": 88,
-    "question": "Comment pouvez-vous vérifier rapidement les permissions effectives d'un utilisateur pour une ressource spécifique (par exemple, une VM) ?",
-    "options": ["En utilisant Azure Policy.", "En utilisant l'outil 'Vérifier l'accès' (Check Access) dans le panneau IAM de la ressource.", "En consultant le profil Entra ID de l'utilisateur.", "En exécutant une commande PowerShell sur la VM."],
+    "question": "Comment vérifier les permissions effectives d'un utilisateur sur une VM ?",
+    "options": ["Utiliser Azure Policy.", "Outil 'Vérifier l'accès'.", "Consulter le profil Entra ID.", "Lancer une commande PowerShell."],
     "correctAnswer": 1,
-    "explanation": "L'outil 'Vérifier l'accès' dans la gestion des accès (IAM) d'une ressource calcule et affiche les permissions effectives de l'utilisateur en tenant compte de tous les rôles et niveaux de scope."
+    "explanation": "L'onglet IAM > Vérifier l'accès calcule les droits finaux en tenant compte de tous les héritages."
   },
   {
     "id": 89,
-    "question": "Quelle est la licence Entra ID nécessaire pour utiliser la fonctionnalité 'Groupes Dynamiques' (Dynamic Groups) qui met à jour l'appartenance automatiquement ?",
-    "options": ["Gratuite", "Entra ID P1", "Microsoft 365 Business Basic", "Azure Standard Support Plan"],
+    "question": "Quelle licence permet d'utiliser les 'Groupes Dynamiques' ?",
+    "options": ["Entra ID Free.", "Entra ID P1.", "Microsoft 365 Business Basic.", "Support Plan Standard."],
     "correctAnswer": 1,
-    "explanation": "Les Groupes Dynamiques, ainsi que l'accès conditionnel et SSPR pour les utilisateurs cloud, nécessitent une licence Entra ID P1 ou P2."
+    "explanation": "Les Groupes Dynamiques (basés sur des règles d'attributs) nécessitent au minimum une licence P1."
   },
   {
     "id": 90,
-    "question": "Si vous déplacez une ressource d'un groupe de ressources (RG_A) à un autre (RG_B), qu'advient-il des attributions de rôles RBAC héritées du RG_A ?",
-    "options": ["Elles restent, car les permissions sont attachées à la ressource.", "Elles sont supprimées et la ressource hérite des attributions de rôles du RG_B.", "La ressource conserve les attributions du RG_A et hérite de celles du RG_B.", "Seules les attributions de rôle 'Propriétaire' sont conservées."],
+    "question": "Que se passe-t-il pour les rôles hérités si vous déplacez une ressource entre deux RG ?",
+    "options": ["La ressource conserve les rôles hérités.", "Elle hérite des rôles du nouveau RG.", "Tous les accès RBAC sont réinitialisés.", "Seuls les Propriétaires sont conservés."],
     "correctAnswer": 1,
-    "explanation": "La ressource cesse d'hériter des permissions du RG_A et commence à hériter des permissions du RG_B. Les attributions de rôles faites directement sur la ressource ne changent pas."
+    "explanation": "En changeant de parent, la ressource perd l'héritage de l'ancien RG et gagne celui du nouveau."
   },
   {
     "id": 91,
-    "question": "Quel est le risque de sécurité principal lié à l'attribution du rôle 'Administrateur global' dans Entra ID ?",
-    "options": ["Il ne permet pas l'accès aux ressources Azure.", "Il est vulnérable aux attaques de phishing.", "Il accorde le contrôle total du répertoire Entra ID et de tous les services liés (M365, etc.).", "Il expire après 90 jours."],
+    "question": "Quel est le risque du rôle 'Administrateur global' ?",
+    "options": ["Il bloque l'accès aux VMs.", "Il est incompatible avec le MFA.", "Il donne un contrôle total sur le tenant.", "Il nécessite une connexion VPN."],
     "correctAnswer": 2,
-    "explanation": "Le rôle 'Administrateur global' est le plus puissant ; l'attribution excessive de ce rôle augmente le rayon d'action d'une potentielle compromission d'identité."
+    "explanation": "C'est le rôle le plus puissant d'Entra ID. Sa compromission permet de contrôler l'intégralité du répertoire."
   },
   {
     "id": 92,
-    "question": "Pour garantir que toutes les machines virtuelles utilisent un certain SKU (taille) pour le contrôle des coûts, quel effet Azure Policy utiliseriez-vous pour bloquer les non-conformités ?",
-    "options": ["Audit", "Deny", "Modify", "DeployIfNotExists"],
+    "question": "Quel effet Azure Policy bloque la création de ressources non conformes ?",
+    "options": ["Audit.", "Deny.", "Modify.", "Append."],
     "correctAnswer": 1,
-    "explanation": "L'effet 'Deny' est utilisé pour empêcher activement les utilisateurs de créer des ressources qui ne répondent pas aux critères définis par la politique (par exemple, un SKU trop cher)."
+    "explanation": "L'effet 'Deny' rejette la demande si elle ne respecte pas les critères définis par la politique."
   },
   {
     "id": 93,
-    "question": "Comment les verrous de ressources (Resource Locks) interagissent-ils avec les attributions de rôles RBAC ?",
-    "options": ["Les verrous ne s'appliquent qu'aux utilisateurs sans rôle RBAC.", "Les verrous priment sur toutes les autorisations RBAC, y compris celles de 'Propriétaire'.", "Les rôles RBAC de 'Propriétaire' peuvent toujours ignorer les verrous.", "Les verrous sont uniquement pour les utilisateurs invités."],
+    "question": "Comment les verrous interagissent-ils avec un utilisateur 'Propriétaire' ?",
+    "options": ["Le Propriétaire peut ignorer le verrou.", "Le verrou bloque le Propriétaire.", "Le verrou ne s'applique pas au Propriétaire.", "Seul le Global Admin voit les verrous."],
     "correctAnswer": 1,
-    "explanation": "Les verrous sont appliqués au niveau de la couche de gestion des ressources Azure (ARM) et agissent comme un 'pare-feu' qui bloque l'opération, même si l'identité a les permissions RBAC pour l'exécuter."
+    "explanation": "Le verrou ARM bloque l'opération au niveau API, donc même un Propriétaire doit supprimer le verrou avant d'agir."
   },
   {
     "id": 94,
-    "question": "Quelle est la première action à considérer pour l'optimisation des coûts si Azure Advisor signale des machines virtuelles sous-utilisées ?",
-    "options": ["Appliquer un verrou 'ReadOnly' à la VM.", "Mettre en place une Azure Policy.", "Redimensionner ou éteindre les VMs sous-utilisées.", "Augmenter la taille du disque de la VM."],
+    "question": "Quelle action privilégier si Advisor signale une VM sous-utilisée ?",
+    "options": ["Appliquer un verrou ReadOnly.", "Mettre une Azure Policy.", "Redimensionner ou éteindre la VM.", "Augmenter la taille du disque."],
     "correctAnswer": 2,
-    "explanation": "Le redimensionnement (vers un SKU moins cher) ou l'arrêt des VMs inutiles sont les actions les plus directes pour réduire les coûts identifiés par Azure Advisor."
+    "explanation": "Le 'Right-sizing' (redimensionner vers le bas) est l'action recommandée pour réduire les coûts inutiles."
   },
   {
     "id": 95,
-    "question": "Quel type de Service Principal est créé lorsque vous enregistrez manuellement une application dans Entra ID ?",
-    "options": ["Identité Gérée par l'Utilisateur", "Identité Gérée par le Système", "Service Principal standard", "Principal d'utilisateur"],
+    "question": "Quel type de Service Principal est créé via un enregistrement manuel ?",
+    "options": ["Identité Gérée Utilisateur.", "Identité Gérée Système.", "Service Principal standard.", "Principal utilisateur."],
     "correctAnswer": 2,
-    "explanation": "L'enregistrement d'une application crée un Service Principal (SP) dans votre répertoire Entra ID, qui agit comme l'identité de l'application pour l'accès aux ressources."
+    "explanation": "L'enregistrement d'une application (App Registration) crée un Service Principal classique dans le tenant."
   },
   {
     "id": 96,
-    "question": "Pour quelles raisons est-il important de séparer les environnements (Dev, Test, Prod) en abonnements Azure distincts ?",
-    "options": ["Pour améliorer les performances des VMs.", "Pour isoler la facturation, le budget et l'application de la gouvernance (Policies, RBAC).", "Pour simplifier le déploiement des réseaux virtuels.", "C'est une exigence réglementaire obligatoire."],
+    "question": "Pourquoi séparer Dev, Test et Prod dans des abonnements distincts ?",
+    "options": ["Améliorer les performances des CPU.", "Isoler facturation et gouvernance.", "Simplifier le déploiement réseau.", "C'est obligatoire légalement."],
     "correctAnswer": 1,
-    "explanation": "La séparation par abonnement est la méthode recommandée pour des raisons de clarté de la facturation, d'isolation de la sécurité (RBAC) et de gouvernance (Policies)."
+    "explanation": "La séparation par abonnement offre la meilleure isolation pour les limites de coûts, de RBAC et de Policies."
   },
   {
     "id": 97,
-    "question": "Quel outil Entra ID est utilisé pour surveiller et gérer l'activation temporaire des rôles privilégiés, suivant le principe Just-In-Time (JIT) ?",
-    "options": ["Azure Monitor", "Azure Security Center (Defender for Cloud)", "Privileged Identity Management (PIM)", "Conditional Access"],
+    "question": "Quel outil gère l'activation temporaire des rôles (Just-In-Time) ?",
+    "options": ["Azure Monitor.", "Defender for Cloud.", "Privileged Identity Management.", "Accès Conditionnel."],
     "correctAnswer": 2,
-    "explanation": "PIM (Privileged Identity Management) permet aux utilisateurs d'activer des rôles juste pour la période nécessaire, réduisant la fenêtre d'exposition des comptes à privilèges élevés."
+    "explanation": "PIM permet d'activer des rôles privilégiés seulement quand nécessaire et pour une durée limitée."
   },
   {
     "id": 98,
-    "question": "Si vous devez vous assurer qu'un utilisateur n'a qu'un accès en lecture seule à un abonnement complet, quel rôle RBAC est le plus approprié à attribuer au niveau de l'abonnement ?",
-    "options": ["Propriétaire", "Contributeur", "Lecteur", "Opérateur de sauvegarde"],
+    "question": "Quel rôle donne un accès lecture seule sur un abonnement complet ?",
+    "options": ["Propriétaire.", "Contributeur.", "Lecteur.", "Opérateur de sauvegarde."],
     "correctAnswer": 2,
-    "explanation": "Le rôle 'Lecteur' (Reader) permet de visualiser tout, mais n'autorise aucune modification ou suppression, répondant à l'exigence de lecture seule pour un scope large."
+    "explanation": "Le rôle 'Lecteur' (Reader) permet de tout voir mais de rien modifier sur tout le périmètre de l'abonnement."
   },
   {
     "id": 99,
-    "question": "Quel est le rôle d'un 'Groupes de Gestion Racines' (Root Management Group) ?",
-    "options": ["Il sert de conteneur pour tous les Management Groups et abonnements du tenant, garantissant l'application de la gouvernance à l'ensemble de l'organisation.", "Il est utilisé uniquement pour la facturation.", "Il ne peut contenir que des abonnements.", "Il est désactivé par défaut."],
+    "question": "Quel est le rôle du 'Root Management Group' ?",
+    "options": ["Conteneur global pour tout le tenant.", "Gestion exclusive de la facturation.", "Stockage des backups d'abonnements.", "Désactivé pour les comptes Standard."],
     "correctAnswer": 0,
-    "explanation": "Le Root Management Group est le nœud supérieur par défaut, assurant que les politiques et rôles appliqués à ce niveau couvrent l'ensemble de l'organisation (le tenant)."
+    "explanation": "Le Root Management Group est le sommet de la hiérarchie. Tout ce qui y est appliqué impacte l'ensemble de l'organisation."
   },
   {
     "id": 100,
-    "question": "Pour le SSPR, quelles sont les deux méthodes d'authentification par défaut généralement acceptées pour vérifier l'identité de l'utilisateur ?",
-    "options": ["Mot de passe et clé physique.", "Numéro de téléphone et e-mail alternatif.", "Empreinte digitale et reconnaissance faciale.", "Secret du client et certificat."],
+    "question": "Quelles sont les méthodes courantes pour le SSPR ?",
+    "options": ["Clé physique et biométrie.", "Téléphone et e-mail alternatif.", "Certificat et secret client.", "ID locataire et abonnement."],
     "correctAnswer": 1,
-    "explanation": "Le numéro de téléphone et l'e-mail alternatif sont les méthodes courantes utilisées par le SSPR pour envoyer un code de vérification à l'utilisateur."
+    "explanation": "Le SSPR s'appuie généralement sur un code SMS ou une adresse mail secondaire pour vérifier l'identité."
   },
   {
     "id": 101,
